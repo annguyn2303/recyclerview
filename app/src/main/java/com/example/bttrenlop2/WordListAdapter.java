@@ -12,31 +12,35 @@ import java.util.LinkedList;
 
 
 public class WordListAdapter extends RecyclerView.Adapter<WordViewHolder> {
-    private final LayoutInflater mInfalter;
-    private LinkedList<String> mWordList = new LinkedList<>();
 
-    public WordListAdapter(Context context, LinkedList<String> wordList) {
-        mInfalter = LayoutInflater.from(context);
-        this.mWordList = wordList;
+    private Context context;
+    private LinkedList<NewsView> NewsList = new LinkedList<NewsView>();
+
+    public WordListAdapter(Context context, LinkedList<NewsView> newsList) {
+        this.context = context;
+        this.NewsList = newsList;
     }
 
 
     @NonNull
     @Override
     public WordViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View mItemView = mInfalter.inflate(R.layout.layoutdechi, parent, false);
+        View mItemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.layoutdechi, parent, false);
 
-        return new WordViewHolder(mItemView, this);
+        return new WordViewHolder(context, mItemView, this);
     }
 
     @Override
     public void onBindViewHolder(@NonNull WordViewHolder holder, int position) {
-        String mCurrent = mWordList.get(position);
-        holder.wordItemView.setText(mCurrent);
+        int resource = NewsList.get(position).getImageViewSource();
+        String title = NewsList.get(position).getTitle();
+        String short_description = NewsList.get(position).getShort_description();
+        String description = NewsList.get(position).getDescription();
+        holder.SetData(resource, title, short_description, description);
     }
 
     @Override
     public int getItemCount() {
-        return mWordList.size();
+        return NewsList.size();
     }
 }

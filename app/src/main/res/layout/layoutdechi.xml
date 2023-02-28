@@ -1,13 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/word"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="@color/black"
-        android:textSize="25dp" />
-</LinearLayout>
+        android:layout_height="120dp">
+        <androidx.cardview.widget.CardView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/imageView"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ip13"
+                android:id="@+id/imageViewSrc"
+                />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/word"
+            android:layout_width="237dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/imageView"
+            android:textSize="16dp"
+            android:text="Iphone 13 giảm giá mạnh"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:id="@+id/description"
+            style="@style/Widget.AppCompat.TextView"
+            android:layout_width="237dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/word"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="6dp"
+            android:layout_toRightOf="@+id/imageView"
+            android:textSize="14dp"
+            android:text="Vào ngày 28/2/2023 giá Iphone 13 giảm không phanh"
+            android:textColor="@color/black"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>
