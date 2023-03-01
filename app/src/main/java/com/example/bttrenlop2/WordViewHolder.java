@@ -43,7 +43,7 @@ public class WordViewHolder extends RecyclerView.ViewHolder implements View.OnCl
     public void SetData(int resource, String title, String short_description, String description){
         imageView.setImageResource(resource);
         newsTitle.setText(title);
-        newsDescription.setText(description);
+        newsDescription.setText(short_description);
         titleTxt = title;
         resourceImg = resource;
         short_descriptionNews = short_description;
